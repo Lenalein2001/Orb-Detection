@@ -1,2 +1,2 @@
 # Orb Detection
- Detects Players using the Orbital Cannon. Features take from my Main script.
+ Detects Players using the Orbital Cannon. Features taken from my Main script.

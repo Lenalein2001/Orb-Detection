@@ -26,7 +26,7 @@ notify = util.toast
 wait = util.yield
 natives_version = "1663599444-uno"
 util.require_natives(natives_version)
-dev_vers = true
+dev_vers = false
 
 -------------------------------------
 -- Lists
@@ -63,7 +63,7 @@ if auto_updater == true then error("Invalid auto-updater lib. Please delete your
 
 local default_check_interval = 604800
 local auto_update_config = {
-    source_url="https://raw.githubusercontent.com/Lenalein2001/Lena-Utils/main/Lua-Scripts/Lena-Utilities.lua",
+    source_url="https://raw.githubusercontent.com/Lenalein2001/Orb-Detection/main/Orbital-Detection.lua",
     script_relpath=SCRIPT_RELPATH,
     switch_to_branch=selected_branch,
     verify_file_begins_with="--",
@@ -72,7 +72,7 @@ local auto_update_config = {
     dependencies={
         {
             name="Natives",
-            source_url="https://raw.githubusercontent.com/Lenalein2001/Lena-Utils/main/Lua-Scripts/lib/natives-1663599444-uno.lua",
+            source_url="https://raw.githubusercontent.com/Lenalein2001/Orb-Detection/main/natives-1663599444-uno.lua",
             script_relpath="/lib/natives-1663599444-uno.lua",
             check_interval=default_check_interval,
         },
