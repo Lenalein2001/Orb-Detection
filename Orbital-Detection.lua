@@ -24,9 +24,8 @@
 
 notify = util.toast
 wait = util.yield
-natives_version = "1663599444-uno"
 trigger_commands = menu.trigger_commands
-notify = util.toast
+natives_version = "1663599444-uno"
 util.require_natives(natives_version)
 dev_vers = false
 
@@ -173,6 +172,13 @@ menu.toggle(anti_orb, "Show Orbital Cannon", {"showorb"}, "Shows you where the P
             end
             wait()
         end
+    end
+end)
+
+menu.action(meny.my_root(), "Check for Updates", {""}, "", function()
+    auto_update_config.check_interval = 0
+    if auto_updater.run_auto_update(auto_update_config) then
+        notify("No updates found")
     end
 end)
 
