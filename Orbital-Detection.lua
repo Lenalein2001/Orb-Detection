@@ -25,6 +25,8 @@
 notify = util.toast
 wait = util.yield
 natives_version = "1663599444-uno"
+trigger_commands = menu.trigger_commands
+notify = util.toast
 util.require_natives(natives_version)
 dev_vers = false
 
