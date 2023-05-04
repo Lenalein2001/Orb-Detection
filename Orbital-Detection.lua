@@ -175,7 +175,7 @@ menu.toggle(anti_orb, "Show Orbital Cannon", {"showorb"}, "Shows you where the P
     end
 end)
 
-menu.action(meny.my_root(), "Check for Updates", {""}, "", function()
+menu.action(menu.my_root(), "Check for Updates", {""}, "", function()
     auto_update_config.check_interval = 0
     if auto_updater.run_auto_update(auto_update_config) then
         notify("No updates found")
