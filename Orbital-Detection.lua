@@ -73,7 +73,7 @@ local auto_update_config = {
     dependencies={
         {
             name="Natives",
-            source_url="https://raw.githubusercontent.com/Lenalein2001/Orb-Detection/main/natives-1663599444-uno.lua",
+            source_url="https://raw.githubusercontent.com/Lenalein2001/Orb-Detection/main/lib/natives-1663599444-uno.lua",
             script_relpath="/lib/natives-1663599444-uno.lua",
             check_interval=default_check_interval,
         },
@@ -145,7 +145,7 @@ menu.toggle(anti_orb, "Show Orbital Cannon", {"showorb"}, "Shows you where the P
                     util.remove_blip(blip)
                     orbital_blips[pid] = nil
                 end
-                break 
+                break
             end
             for _, pid in players.list(false, true, true) do
                 local cam_rot = players.get_cam_rot(pid)
