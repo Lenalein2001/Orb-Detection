@@ -33,7 +33,7 @@ dev_vers = false
 -- Lists
 -------------------------------------
 
-local online = menu.list(menu.my_root(), "Online", {"lenaonline"}, "Online Options")
+local online = menu.list(menu.my_root(), "Online", {""}, "")
 local anti_orb = menu.list(online, "Anti Orb", {"antiorb"}, "Protections against the Orbital Cannon.")
 
 -------------------------------------
@@ -110,11 +110,11 @@ menu.toggle(anti_orb, "Notify on orb usage", {"notifyorb"}, "Notifies you if a P
         for pid in players.list(false, true, true) do
             if players.get_position(pid).x > 323 and players.get_position(pid).y < 4834 and players.get_position(pid).y > 4822 and players.get_position(pid).z <= -59.36 then
                 if IsOutOfOrbRoom[pid] and not IsInOrbRoom[pid] then
-                    notify(players.get_name(pid) .." has entered the orbital cannon room.")
+                    notify(players.get_name(pid).." has entered the Orbital Cannon Room.")
                 end
                 if players.get_position(pid).x < 331 and players.get_position(pid).x > 330.40 and players.get_position(pid).y > 4830 and players.get_position(pid).y < 4830.40 and players.get_position(pid).z <= -59.36 then
                     if IsNotAtOrbTable[pid] and not IsAtOrbTable[pid] then
-                        notify(players.get_name(pid) .." is calling an Orbital Strike!")
+                        notify(players.get_name(pid).." is calling an Orbital Strike!")
                     end
                     IsAtOrbTable[pid] = true
                     IsNotAtOrbTable[pid] = false
@@ -123,7 +123,7 @@ menu.toggle(anti_orb, "Notify on orb usage", {"notifyorb"}, "Notifies you if a P
                 IsOutOfOrbRoom[pid] = false
             else
                 if IsInOrbRoom[pid] and not IsOutOfOrbRoom[pid] then
-                    notify(players.get_name(pid) .." has left the orbital cannon room.")
+                    notify(players.get_name(pid).." has left the Orbital Cannon Room.")
                 end
                 IsAtOrbTable[pid] = false
                 IsInOrbRoom[pid] = false
@@ -184,7 +184,7 @@ end)
 
 function player(pid)
     kick_root = menu.ref_by_rel_path(menu.player_root(pid), "Kick")
-    menu.action(kick_root, "Block Kick", {"block"}, "Will kick and block the player from joining you ever again.", function()
+    menu.action(kick_root, "Block Kick", {"block"}, "Will kick and block the Player from joining you ever again.", function()
         if menu.get_edition() >= 1 then
             if players.get_name(pid) == players.get_name(players.user()) then
                 notify("You can't Kick yourself.")
