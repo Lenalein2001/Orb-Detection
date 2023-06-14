@@ -93,7 +93,7 @@ function BitTest(bits, place)
 end
 
 function IsPlayerUsingOrbitalCannon(player)
-    return BitTest(memory.read_int(memory.script_global((2657589 + (player * 466 + 1) + 427))), 0) -- Global_2657589[PLAYER::PLAYER_ID() /*466*/].f_427), 0
+    return BitTest(memory.read_int(memory.script_global((2657704 + (player * 463 + 1) + 424))), 0) -- Global_2657704[PLAYER::PLAYER_ID() /*463*/].f_424 -- Global_2657589[PLAYER::PLAYER_ID() /*466*/].f_427), 0
 end
 
 -------------------------------------
@@ -185,28 +185,13 @@ end)
 function player(pid)
     kick_root = menu.ref_by_rel_path(menu.player_root(pid), "Kick")
     menu.action(kick_root, "Block Kick", {"block"}, "Will kick and block the Player from joining you ever again.", function()
-        if menu.get_edition() >= 1 then
-            if players.get_name(pid) == players.get_name(players.user()) then
-                notify("You can't Kick yourself.")
-            else
-                wait(200)
-                trigger_commands("historyblock" .. players.get_name(pid) .. " on")
-                wait(200)
-                if math.random(1, 100) <= 10 then
-                    trigger_commands("ban" .. players.get_name(pid))
-                else
-                    trigger_commands("breakup" .. players.get_name(pid))
-                end
-            end
+        if players.get_name(pid) == players.get_name(players.user()) then
+            notify("You can't Kick yourself.")
         else
-            if players.get_name(pid) == players.get_name(players.user()) then
-                notify("You can't Kick yourself.")
-            else
-                wait(200)
-                trigger_commands("historyblock" .. players.get_name(pid) .. " on")
-                wait(200)
-                trigger_commands("kick" .. players.get_name(pid))
-            end
+            wait(200)
+            trigger_commands("historyblock" .. players.get_name(pid) .. " on")
+            wait(200)
+            trigger_commands("kick" .. players.get_name(pid))
         end
     end, nil, nil, COMMANDPERM_RUDE)
 end
