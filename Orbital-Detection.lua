@@ -184,7 +184,7 @@ end)
 
 function player(pid)
     kick_root = menu.ref_by_rel_path(menu.player_root(pid), "Kick")
-    menu.action(kick_root, "Block Kick", {"block"}, "Will kick and block the Player from joining you ever again.", function()
+    menu.action(kick_root, "Block Kick", {"block", "blacklist", "emp", "rape"}, "Will kick and block the Player from joining you ever again.", function()
         if players.get_name(pid) == players.get_name(players.user()) then
             notify("You can't Kick yourself.")
         else
